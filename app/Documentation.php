@@ -43,7 +43,7 @@ class Documentation
     public function getIndex($version)
     {
         return $this->cache->remember('docs.'.$version.'.index', 5, function () use ($version) {
-            $path = base_path('resources/docs/'.$version.'/documentation.md');
+            $path = base_path('resources/docs/'.$version.'/ru/documentation.md');
 
             if ($this->files->exists($path)) {
                 return $this->replaceLinks($version, (new Parsedown())->text($this->files->get($path)));
@@ -63,7 +63,7 @@ class Documentation
     public function get($version, $page)
     {
         return $this->cache->remember('docs.'.$version.'.'.$page, 5, function () use ($version, $page) {
-            $path = base_path('resources/docs/'.$version.'/'.$page.'.md');
+            $path = base_path('resources/docs/'.$version.'/ru/'.$page.'.md');
 
             if ($this->files->exists($path)) {
                 return $this->replaceLinks($version, (new Parsedown)->text($this->files->get($path)));
@@ -95,7 +95,7 @@ class Documentation
     public function sectionExists($version, $page)
     {
         return $this->files->exists(
-            base_path('resources/docs/'.$version.'/'.$page.'.md')
+            base_path('resources/docs/'.$version.'/ru/'.$page.'.md')
         );
     }
 
@@ -121,21 +121,21 @@ class Documentation
     public static function getDocVersions()
     {
         return [
-            'master' => 'Master',
+//            'master' => 'Master',
             '8.x' => '8.x',
-            '7.x' => '7.x',
-            '6.x' => '6.x',
+//            '7.x' => '7.x',
+//            '6.x' => '6.x',
             // '6.0' => '6.0',
-            '5.8' => '5.8',
-            '5.7' => '5.7',
-            '5.6' => '5.6',
-            '5.5' => '5.5',
-            '5.4' => '5.4',
-            '5.3' => '5.3',
-            '5.2' => '5.2',
-            '5.1' => '5.1',
-            '5.0' => '5.0',
-            '4.2' => '4.2',
+//            '5.8' => '5.8',
+//            '5.7' => '5.7',
+//            '5.6' => '5.6',
+//            '5.5' => '5.5',
+//            '5.4' => '5.4',
+//            '5.3' => '5.3',
+//            '5.2' => '5.2',
+//            '5.1' => '5.1',
+//            '5.0' => '5.0',
+//            '4.2' => '4.2',
         ];
     }
 }
